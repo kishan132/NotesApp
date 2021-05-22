@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -7,9 +7,14 @@ import Loading from '../../components/Loading/Loading';
 const AuthRoutes = (props) => {
   const {
     component: Component,
+    onGetUser,
     auth: { isAuthenticated, loading },
     ...rest
   } = props;
+  
+  useEffect(() => {
+    onGetUser();
+  }, [onGetUser]);
 
   return (
     <Route
@@ -31,4 +36,8 @@ const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(AuthRoutes);
+const mapDispatchToProps = (dispatch) => ({
+  onGetUser: () => dispatch(actions.getUser())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthRoutes);
