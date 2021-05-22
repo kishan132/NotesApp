@@ -1,0 +1,43 @@
+{
+  "name": "notesapp",
+  "version": "1.0.0",
+  "description": "A simple but attractive notes application",
+  "main": "index.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "Notes",
+    "Evernote",
+    "Onenote",
+    "keep",
+    "colornote"
+  ],
+  "author": "Shashi Kant Yadav",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "compression": "1.7.4",
+    "concurrently": "6.1.0",
+    "cors": "2.8.5",
+    "create-react-app": "4.0.3",
+    "date-fns": "2.21.3",
+    "dotenv": "9.0.2",
+    "express": "4.17.1",
+    "helmet": "4.6.0",
+    "hpp": "0.2.3",
+    "is-empty": "1.2.0",
+    "jsonwebtoken": "8.5.1",
+    "mongoose": "5.12.9",
+    "twilio": "3.62.0",
+    "validator": "13.6.0",
+    "xss-clean": "0.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.7"
+  }
+}
